@@ -47,7 +47,6 @@ public final class TreeGrowListener implements Listener {
 
     @EventHandler
     public void onTreeGrow(@NotNull final StructureGrowEvent event) {
-        System.out.println(config.getEnabledWorlds());
         if (!config.getEnabledWorlds().contains(event.getWorld().getName())) return;
 
         final List<BlockState> states = event.getBlocks();

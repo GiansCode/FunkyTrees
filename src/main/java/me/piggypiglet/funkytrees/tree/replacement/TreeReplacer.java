@@ -21,8 +21,6 @@ public final class TreeReplacer {
     }
 
     private void replace(@NotNull final Set<BlockState> states, @NotNull final Material material) {
-        states.stream()
-                .map(BlockState::getBlock)
-                .forEach(block -> block.setType(material));
+        states.forEach(state -> state.setType(material));
     }
 }
