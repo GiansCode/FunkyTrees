@@ -1,0 +1,24 @@
+name: FunkyTrees
+version: @version@
+main: me.piggypiglet.funkytrees.boot.FunkyTreesBootstrap
+author: PiggyPiglet
+website: https://piggypiglet.me
+description: Replace the blocks of a grown tree
+api-version: "1.16"
+prefix: FT
+
+commands:
+  ft:
+    description: FunkyTrees main command.
+    aliases: funkytrees
+
+permissions:
+  funkytrees.admin:
+    description: Permission for all FT commands
+    children:
+      funkytrees.help: true
+      funkytrees.reload: true
+  funkytrees.help:
+    description: Permission for the /ft help command.
+  funkytrees.reload:
+    description: Permission for the /ft reload command.

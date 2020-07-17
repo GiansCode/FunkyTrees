@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+apply from: "https://cdn.piggypiglet.me/gradle/spigot.gradle"
+
+group 'me.piggypiglet'
+version '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding = "UTF-8"
+
+dependencies {
+    implementation("com.google.inject:guice:4.2.3") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+
+    compileOnly "org.jetbrains:annotations:19.0.0"
+    spigot "1.16.1-R0.1"
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}
+
+shadowJar {
+    delete file("server/plugins/FunkyTrees")
+    destinationDirectory = file("server/plugins/")
+
+//    relocate "com.google.inject", "me.piggypiglet.lavautilities.deps.inject.guice"
+//    relocate "javax.inject", "me.piggypiglet.lavautilities.deps.inject.javax"
+//    relocate "org.aopalliance", "me.piggypiglet.lavautilities.deps.inject.aop"
+}

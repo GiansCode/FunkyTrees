@@ -1,0 +1,6 @@
+leaf_replacement: "GLASS"
+log_replacement: "COBBLESTONE"
+enabled_worlds:
+  - "world"
+  - "world_nether"
+  - "world_the_end"
