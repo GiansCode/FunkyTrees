@@ -1,5 +1,35 @@
-leaf_replacement: "GLASS"
-log_replacement: "COBBLESTONE"
+oak:
+  - log: COBBLESTONE
+    leaf: GLASS
+    chance: 100
+spruce:
+  - log: STONE
+    leaf: GLASS
+    chance: 100
+birch:
+  - log: BEDROCK
+    leaf: GLASS
+    chance: 100
+jungle:
+  - log: OBSIDIAN
+    leaf: GLASS
+    chance: 100
+acacia:
+  - log: GRASS
+    leaf: GLASS
+    chance: 100
+dark_oak:
+  - log: GOLD_ORE
+    leaf: GLASS
+    chance: 100
+crimson:
+  - log: TERRACOTTA
+    leaf: GLASS
+    chance: 100
+warped:
+  - log: SANDSTONE
+    leaf: GLASS
+    chance: 100
 enabled_worlds:
   - "world"
   - "world_nether"

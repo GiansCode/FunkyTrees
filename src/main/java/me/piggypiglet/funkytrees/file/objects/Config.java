@@ -1,12 +1,13 @@
 package me.piggypiglet.funkytrees.file.objects;
 
-import com.google.gson.annotations.JsonAdapter;
 import com.google.inject.Singleton;
 import me.piggypiglet.funkytrees.file.annotations.File;
-import me.piggypiglet.funkytrees.file.objects.json.MaterialDeserializer;
-import org.bukkit.Material;
+import me.piggypiglet.funkytrees.file.objects.tree.Tree;
+import me.piggypiglet.funkytrees.utils.collection.ProbabilityCollection;
+import org.bukkit.TreeType;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
 import java.util.Set;
 
 // ------------------------------
@@ -19,22 +20,16 @@ import java.util.Set;
         externalPath = "config.yml"
 )
 public final class Config {
-    @JsonAdapter(MaterialDeserializer.class) private Material leafReplacement;
-    @JsonAdapter(MaterialDeserializer.class) private Material logReplacement;
+    private Map<TreeType, ProbabilityCollection<Tree>> trees;
     private Set<String> enabledWorlds;
-
-    @NotNull
-    public Material getLeafReplacement() {
-        return leafReplacement;
-    }
-
-    @NotNull
-    public Material getLogReplacement() {
-        return logReplacement;
-    }
 
     @NotNull
     public Set<String> getEnabledWorlds() {
         return enabledWorlds;
+    }
+
+    @NotNull
+    public Map<TreeType, ProbabilityCollection<Tree>> getTrees() {
+        return trees;
     }
 }
