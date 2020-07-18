@@ -1,3 +1,24 @@
+# Tree type (e.g. oak), log, leaf, and grow_method all correspond to enums. They're case insensitive, which is
+# demonstrated in this config.
+#
+# Tree types:
+# - OAK
+# - SPRUCE
+# - BIRCH
+# - JUNGLE
+# - ACACIA
+# - DARK_OAK
+# - CRIMSON
+# - WARPED
+#
+# Grow methods:
+# - BONEMEAL
+# - NATURAL
+# - BOTH
+#
+# Chance isn't a percentage, think of it as a weight.
+#
+# If no tree configuration is present for a particular type & grow method, the default tree will be generated.
 trees:
   oak:
     - log: COBBLESTONE
