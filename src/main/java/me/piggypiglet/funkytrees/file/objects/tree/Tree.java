@@ -8,8 +8,13 @@ import org.jetbrains.annotations.NotNull;
 // https://www.piggypiglet.me
 // ------------------------------
 public final class Tree {
-    private Material log;
-    private Material leaf;
+    private final Material log;
+    private final Material leaf;
+
+    public Tree(@NotNull final Material log, @NotNull final Material leaf) {
+        this.log = log;
+        this.leaf = leaf;
+    }
 
     @NotNull
     public Material getLog() {
@@ -19,5 +24,13 @@ public final class Tree {
     @NotNull
     public Material getLeaf() {
         return leaf;
+    }
+
+    @Override
+    public String toString() {
+        return "Tree{" +
+                "log=" + log +
+                ", leaf=" + leaf +
+                '}';
     }
 }

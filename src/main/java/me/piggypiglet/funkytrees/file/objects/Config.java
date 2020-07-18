@@ -1,13 +1,16 @@
 package me.piggypiglet.funkytrees.file.objects;
 
+import com.google.common.collect.Table;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.inject.Singleton;
 import me.piggypiglet.funkytrees.file.annotations.File;
+import me.piggypiglet.funkytrees.file.objects.json.TreesDeserializer;
 import me.piggypiglet.funkytrees.file.objects.tree.Tree;
+import me.piggypiglet.funkytrees.file.objects.tree.enums.GrowMethod;
+import me.piggypiglet.funkytrees.file.objects.tree.enums.TreeType;
 import me.piggypiglet.funkytrees.utils.collection.ProbabilityCollection;
-import org.bukkit.TreeType;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
 import java.util.Set;
 
 // ------------------------------
@@ -20,7 +23,7 @@ import java.util.Set;
         externalPath = "config.yml"
 )
 public final class Config {
-    private Map<TreeType, ProbabilityCollection<Tree>> trees;
+    @JsonAdapter(TreesDeserializer.class) private Table<TreeType, GrowMethod, ProbabilityCollection<Tree>> trees;
     private Set<String> enabledWorlds;
 
     @NotNull
@@ -29,7 +32,7 @@ public final class Config {
     }
 
     @NotNull
-    public Map<TreeType, ProbabilityCollection<Tree>> getTrees() {
+    public Table<TreeType, GrowMethod, ProbabilityCollection<Tree>> getTrees() {
         return trees;
     }
 }

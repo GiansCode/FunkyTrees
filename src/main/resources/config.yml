@@ -1,35 +1,44 @@
-oak:
-  - log: COBBLESTONE
-    leaf: GLASS
-    chance: 100
-spruce:
-  - log: STONE
-    leaf: GLASS
-    chance: 100
-birch:
-  - log: BEDROCK
-    leaf: GLASS
-    chance: 100
-jungle:
-  - log: OBSIDIAN
-    leaf: GLASS
-    chance: 100
-acacia:
-  - log: GRASS
-    leaf: GLASS
-    chance: 100
-dark_oak:
-  - log: GOLD_ORE
-    leaf: GLASS
-    chance: 100
-crimson:
-  - log: TERRACOTTA
-    leaf: GLASS
-    chance: 100
-warped:
-  - log: SANDSTONE
-    leaf: GLASS
-    chance: 100
+trees:
+  oak:
+    - log: COBBLESTONE
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  spruce:
+    - log: STONE
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  birch:
+    - log: BEDROCK
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  jungle:
+    - log: OBSIDIAN
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  acacia:
+    - log: GRASS_BLOCK
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  dark_oak:
+    - log: GOLD_ORE
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  crimson:
+    - log: TERRACOTTA
+      leaf: GLASS
+      chance: 100
+      grow_method: both
+  warped:
+    - log: SANDSTONE
+      leaf: GLASS
+      chance: 100
+      grow_method: both
 enabled_worlds:
   - "world"
   - "world_nether"

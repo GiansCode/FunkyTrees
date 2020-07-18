@@ -1,7 +1,12 @@
-package me.piggypiglet.funkytrees.file.objects.tree;
+package me.piggypiglet.funkytrees.file.objects.tree.enums;
 
+import com.google.common.collect.Sets;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Arrays;
+import java.util.Set;
 
 import static org.bukkit.Material.*;
 
@@ -19,6 +24,15 @@ public enum TreeType {
     CRIMSON(CRIMSON_STEM, NETHER_WART_BLOCK),
     WARPED(WARPED_STEM, WARPED_WART_BLOCK);
 
+    public static final Set<Material> LOGS = Sets.newHashSet(
+            OAK.log, SPRUCE.log, BIRCH.log, JUNGLE.log,
+            ACACIA.log, DARK_OAK.log, CRIMSON.log, WARPED.log
+    );
+    public static final Set<Material> LEAVES = Sets.newHashSet(
+            OAK.leaf, SPRUCE.leaf, BIRCH.leaf, JUNGLE.leaf,
+            ACACIA.leaf, DARK_OAK.leaf, CRIMSON.leaf, WARPED.leaf
+    );
+
     private final Material log;
     private final Material leaf;
 
@@ -35,5 +49,12 @@ public enum TreeType {
     @NotNull
     public Material getLeaf() {
         return leaf;
+    }
+
+    @Nullable
+    public static TreeType fromLog(@NotNull final Material log) {
+        return Arrays.stream(values())
+                .filter(type -> type.log == log)
+                .findAny().orElse(null);
     }
 }

@@ -33,54 +33,34 @@ public final class ProbabilityCollection<E> {
 
     private int totalProbability = 0;
 
-    public ProbabilityCollection(@NotNull final Map<E, Integer> map) {
-        map.forEach(this::add);
-    }
-
-    @NotNull
-    public Iterator<ProbabilitySetElement<E>> iterator() {
-        return this.collection.iterator();
-    }
-
-    public boolean isEmpty() {
-        return this.collection.isEmpty();
-    }
-
-    private void add(@NotNull final E object, final int probability) {
+    public void add(@NotNull final E object, final int probability) {
         if (probability <= 0) {
             throw new IllegalArgumentException("Probability must be greater than 0");
         }
 
         final ProbabilitySetElement<E> entry = new ProbabilitySetElement<>(object, probability);
-        entry.setIndex(this.totalProbability + 1);
+        entry.setIndex(totalProbability + 1);
 
-        this.collection.add(entry);
-        this.totalProbability += probability;
+        collection.add(entry);
+        totalProbability += probability;
     }
 
     @NotNull
     public E get() {
-        if (this.isEmpty()) {
+        if (isEmpty()) {
             throw new IllegalStateException("Cannot get an object out of a empty collection");
         }
 
         final ProbabilitySetElement<E> toFind = new ProbabilitySetElement<>(null, 0);
-        toFind.setIndex(this.random.nextInt(1, this.totalProbability + 1));
+        toFind.setIndex(random.nextInt(1, totalProbability + 1));
 
-        return Objects.requireNonNull(Objects.requireNonNull(this.collection.floor(toFind)).getObject());
+        return Objects.requireNonNull(Objects.requireNonNull(collection.floor(toFind)).getObject());
     }
 
-    /**
-     * Used internally to store information about a object's
-     * state in a collection. Specifically, the probability
-     * and index within the collection.
-     * <p>
-     * Indexes refer to the start position of this element's "block" of space.
-     * The space between element "block"s represents their probability of being selected
-     *
-     * @param <T> Type of element
-     * @author Lewys Davies
-     */
+    public boolean isEmpty() {
+        return collection.isEmpty();
+    }
+
     private static final class ProbabilitySetElement<T> {
         private final T object;
         private final int probability;
@@ -93,15 +73,15 @@ public final class ProbabilityCollection<E> {
 
         @Nullable
         public T getObject() {
-            return this.object;
+            return object;
         }
 
         public int getProbability() {
-            return this.probability;
+            return probability;
         }
 
         private int getIndex() {
-            return this.index;
+            return index;
         }
 
         private void setIndex(final int index) {
