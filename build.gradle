@@ -6,7 +6,7 @@ plugins {
 apply from: "https://cdn.piggypiglet.me/gradle/spigot.gradle"
 
 group 'me.piggypiglet'
-version '1.0.0'
+version '1.0.1'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 compileJava.options.encoding = "UTF-8"
@@ -32,7 +32,7 @@ shadowJar {
     delete file("server/plugins/FunkyTrees")
     destinationDirectory = file("server/plugins/")
 
-//    relocate "com.google.inject", "me.piggypiglet.lavautilities.deps.inject.guice"
-//    relocate "javax.inject", "me.piggypiglet.lavautilities.deps.inject.javax"
-//    relocate "org.aopalliance", "me.piggypiglet.lavautilities.deps.inject.aop"
+    relocate "com.google.inject", "me.piggypiglet.funkytrees.deps.inject.guice"
+    relocate "javax.inject", "me.piggypiglet.funkytrees.deps.inject.javax"
+    relocate "org.aopalliance", "me.piggypiglet.funkytrees.deps.inject.aop"
 }
